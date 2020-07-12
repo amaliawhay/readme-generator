@@ -6,6 +6,16 @@ inquirer
   .prompt([
     {
       type: "input",
+      name: "userName",
+      message: "What is your github user name?",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is your email address?",
+    },
+    {
+      type: "input",
       name: "title",
       message: "What is your project called?",
     },
@@ -15,10 +25,18 @@ inquirer
       message: "Enter a description of your project.",
     },
     {
-      type: "input",
+      type: "checkbox",
       name: "tableOfContents",
       message:
-        "What would you like in your table of contents?",
+        "Which of the following would you like in your table of contents? Check all that apply.",
+      choices: [
+        "Installation",
+        "Usage",
+        "License",
+        "Contributing",
+        "Tests",
+        "Questions",
+      ],
     },
     {
       type: "input",
@@ -28,7 +46,7 @@ inquirer
     {
       type: "input",
       name: "usage",
-      message: "Describe the ways to use your project",
+      message: "Describe how this project can be used",
     },
     {
       type: "input",
@@ -47,32 +65,45 @@ inquirer
     },
   ])
   .then(function (res) {
-    console.log(res);
-    console.log(res.title);
-    console.log(res.description);
-    console.log(res.tableOfContents);
-    console.log(res.installation);
+    // console.log(res);
+    // console.log(res.title);
+    // console.log(res.description);
+    // console.log(res.tableOfContents);
+    // console.log(res.installation);
 
     const md = `
         
-  ## Title
-  * ${res.title}
+  # ${res.title}
   ## Description
-  * ${res.description}
+  ${res.description}
+
   ## Table of Contents
-  * ${res.tableOfContents}
+  1. [${res.tableOfContents[0]}](## Installation) 
+  1. [${res.tableOfContents[1]}](## Usage)
+  1. [${res.tableOfContents[2]}](## License)
+  1. [${res.tableOfContents[3]}](## Contributing)
+  1. [${res.tableOfContents[4]}](## Tests)
+  1. [${res.tableOfContents[5]}](## Questions)
+  
   ## Installation
-  * ${res.installation}
+  ${res.installation}
+
   ## Usage
-  * 
+  * ${res.usage}
+
   ## License
   * ${res.license}
+
   ## Contributing
   * ${res.contributions}
+
   ## Tests
   * ${res.test}
+
   ## Questions
-  * `;
+  * Please email questions to ${res.email}
+
+  * https://github.com/${res.userName}`;
 
     fs.writeFile("ReadMe.md", md, (err) => {
       if (err) {
