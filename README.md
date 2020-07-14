@@ -17,9 +17,9 @@ Simply clone the repository to install.
 
 ## Usage
 
-To use this generator, run node on the index.js file. Answer the CLI prompts with the information on your project.
+To use this generator, run node on the index.js file. Answer the CLI prompts with the information on your project. Click the google drive link below to view a demonstration.
 
-![Screen shot of command line application](\images\cliImg.png)
+https://drive.google.com/file/d/16ZzyV2Lp11KkLl4QQB-OUoHrvRF5JeMs/view
 
 Once the questions have been answered, the file with be created in your directory.
 
