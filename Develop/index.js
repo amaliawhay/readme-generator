@@ -24,20 +24,7 @@ inquirer
       name: "description",
       message: "Enter a description of your project.",
     },
-    {
-      type: "checkbox",
-      name: "tableOfContents",
-      message:
-        "Which of the following would you like in your table of contents? Check all that apply.",
-      choices: [
-        "Installation",
-        "Usage",
-        "License",
-        "Contributing",
-        "Tests",
-        "Questions",
-      ],
-    },
+
     {
       type: "input",
       name: "installation",
@@ -49,9 +36,14 @@ inquirer
       message: "Describe how this project can be used",
     },
     {
-      type: "input",
+      type: "checkbox",
       name: "license",
-      message: "Enter your license information here",
+      message: "Choose your license",
+      choices: [
+        "Apache License 2.0",
+        "GNU General Public License v3.0",
+        "MIT License",
+      ],
     },
     {
       type: "input",
@@ -69,8 +61,8 @@ inquirer
     // console.log(res.title);
     // console.log(res.description);
     // console.log(res.tableOfContents);
-    // console.log(res.installation);
 
+    //holds user input
     const md = `
         
   # ${res.title}
@@ -78,47 +70,39 @@ inquirer
   ${res.description}
 
   ## Table of Contents
-  1. [${res.tableOfContents[0]}](## Installation) 
-  1. [${res.tableOfContents[1]}](## Usage)
-  1. [${res.tableOfContents[2]}](## License)
-  1. [${res.tableOfContents[3]}](## Contributing)
-  1. [${res.tableOfContents[4]}](## Tests)
-  1. [${res.tableOfContents[5]}](## Questions)
+  1. [Installation](## Installation) 
+  1. [Usage}](## Usage)
+  1. [License](## License)
+  1. [Contributing](## Contributing)
+  1. [Tests](## Tests)
+  1. [Questions](## Questions)
   
   ## Installation
   ${res.installation}
 
   ## Usage
-  * ${res.usage}
+  ${res.usage}
 
   ## License
-  * ${res.license}
+  ${res.license}[![Generic badge](https://img.shields.io/badge/License-${res.license}-green.svg)](https://shields.io/)
 
   ## Contributing
-  * ${res.contributions}
+  ${res.contributions}
 
   ## Tests
-  * ${res.test}
+  ${res.test}
 
   ## Questions
   * Please email questions to ${res.email}
 
   * https://github.com/${res.userName}`;
 
+    //writes user input to markdown file
     fs.writeFile("ReadMe.md", md, (err) => {
       if (err) {
         console.log(err);
       } else {
-        console.log("ReadMe.md created!");
+        console.log("ReadMe.md successfully created!");
       }
     });
   });
-
-// // function to write README file
-// function writeToFile(fileName, data) {}
-
-// // function to initialize program
-// function init() {}
-
-// // function call to initialize program
-// init();
