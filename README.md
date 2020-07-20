@@ -6,10 +6,10 @@ This is a simple CLI application that will generate a README.md file specific to
 
 ## Table of Contents
 
-1. [Installation](## Installation)
-1. [Usage}](## Usage)
-1. [Contributing](## Contributing)
-1. [Questions](## Questions)
+1. [Installation](##Installation)
+1. [Usage](##Usage)
+1. [Contributing](##Contributing)
+1. [Questions](##Questions)
 
 ## Installation
 
