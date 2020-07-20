@@ -70,12 +70,12 @@ inquirer
   ${res.description}
 
   ## Table of Contents
-  1. [Installation](## Installation) 
-  1. [Usage}](## Usage)
-  1. [License](## License)
-  1. [Contributing](## Contributing)
-  1. [Tests](## Tests)
-  1. [Questions](## Questions)
+  1. [Installation](##Installation) 
+  1. [Usage](##Usage)
+  1. [License](##License)
+  1. [Contributing](##Contributing)
+  1. [Tests](##Tests)
+  1. [Questions](##Questions)
   
   ## Installation
   ${res.installation}
@@ -84,7 +84,7 @@ inquirer
   ${res.usage}
 
   ## License
-  ${res.license}[![Generic badge](https://img.shields.io/badge/License-${res.license}-green.svg)](https://shields.io/)
+  [![Generic badge](https://img.shields.io/badge/License-${res.license}-green.svg)](https://shields.io/)
 
   ## Contributing
   ${res.contributions}
